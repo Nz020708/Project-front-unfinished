@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
+      <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <title>MSW</title>
+</head>
+
+<body >
+
+    <header>
+        <div id="signin-part" class="modal">
+            <form class="modal-content animate" action="/action_page.php" method="post">
+              <div class="buttoncontainer">
+                <span class="closeButton" title="Close Modal">&times;</span>
+              </div>
+              <div class="container">
+                <label for="uname"><b>Username</b></label>
+                <input class="input-text" type="text" placeholder="Enter Username" name="uname" required />
+      
+                <label for="psw"><b>Password</b></label>
+                <input class="input-text" type="password" placeholder="Enter Password" name="psw" required />
+      
+                <button type="submit" class="login">Login</button>
+                <div class="sign__group sign__group--checkbox">
+                  <label>
+                    <input class="input-text" type="checkbox" checked="checked" name="remember"> Remember me
+                  </label>
+                </div>
+              </div>
+              <div class="container">
+                <span class="sign__delimiter">or</span>
+                <div class="row">
+                  <div class="col-4">
+                    <button class="facebook">
+                      <i class="fa-brands fa-facebook"></i>
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button class="twitter">
+                      <i class="fa-brands fa-twitter"></i>
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button class="google">
+                      <i class="fa-brands fa-google"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+                <p>Don't have an account yet?</p>
+                <button type="button" class="createbtn">Create an account</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+              </div>
+            </form>
+          </div>
+          <div id="signup-part" class="modal-signup" style="display: none;">
+            <form class="modal-content animate" action="/action_page.php" method="post">
+              <div class="buttoncontainer">
+                <span class="closeButton" title="Close Modal">&times;</span>
+              </div>
+              <div class="container">
+                <label for="uname"><b>Email</b></label>
+                <input class="input-text" type="text" placeholder="Enter Email" name="email" required />
+                <label for="uname"><b>Username</b></label>
+                <input class="input-text" type="text" placeholder="Enter Username" name="uname" required />
+      
+                <label for="psw"><b>Password</b></label>
+                <input class="input-text" type="password" placeholder="Enter Password" name="psw" required />
+                <label for="psw"><b>Password</b></label>
+                <input class="input-text" type="password" placeholder="Repeat Password" name="checkpassword" required />
+      
+                <button type="submit" class="signup">Sign Up</button>
+                <div class="sign__group sign__group--checkbox">
+                  <input id="remember" name="remember" type="checkbox" checked="checked" />
+                  <label for="remember">Remember Me</label>
+                </div>
+              </div>
+              <div class="container">
+                <span class="sign__delimiter">or</span>
+                <div class="row">
+                  <div class="col-4">
+                    <button class="facebook">
+                      <i class="fa-brands fa-facebook"></i>
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button class="twitter">
+                      <i class="fa-brands fa-twitter"></i>
+                    </button>
+                  </div>
+                  <div class="col-4">
+                    <button class="google">
+                      <i class="fa-brands fa-google"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        <nav> 
+            <div class="container">
+              <ul class="menu">
+                <li>
+                  <i class="fa-solid fa-bars" ></i>
+                </li>
+                <li class="logo"><a href="#"><img
+                      src="https://show.moxcreative.com/hipsound/wp-content/uploads/sites/9/elementor/thumbs/logo_hipsound-pf9lah0bfemgxlwlv20v9ga964pqbmgxh3ocsurbb4.png"
+                      alt="logo" /></a></li>
+                      <ul class="list item">
+                        <li class="item list-member "><a href="index.html" class="active">Home</a></li>
+                        <li class="item list-member"><a href="premium.html">Premium</a></li>
+                        <li class="item list-member"><a href="about.html">About</a></li>
+                        <li class="item list-member"><a href="#">Support</a>
+                        </li>
+                      </ul>
+                <li class="item "><button href="#" class="btn-signin">Sign In</button></li>
+                <!-- <li class="item button secondary"><a href="#">Sign Up</a></li> -->
+                <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+              </ul>
+            </div>
+           
+          </nav>
+    </header>
+     <!-- <div class="flex md:flex-row-reverse flex-wrap">
+		
+		 <!--Main Content-->
+         <!-- <div class="w-full md:w-4/5 bg-gray-100">
+            <div class="container bg-gray-100 pt-16 px-6">
+               
+            </div>
+         </div> -->
+		 
+		 <!--Sidebar-->
+         <!-- <div class="w-full md:w-1/5 bg-gray-900 md:bg-gray-900 px-2 text-center fixed bottom-0 md:pt-8 md:top-0 md:left-0 h-16 md:h-screen md:border-r-4 md:border-gray-600">
+            <div class="md:relative mx-auto lg:float-right lg:px-6">
+               <ul class="list-reset flex flex-row md:flex-col text-center md:text-left">
+                  <li class="mr-3 flex-1">
+                     <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-pink-500">
+                     <i class="fas fa-link pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Link</span>
+                     </a>
+                  </li>
+                  <li class="mr-3 flex-1">
+                     <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-pink-500">
+                     <i class="fas fa-link pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Link</span>
+                     </a>
+                  </li>
+                  <li class="mr-3 flex-1">
+                     <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-pink-600">
+                     <i class="fas fa-link pr-0 md:pr-3 text-pink-500"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:font-bold block md:inline-block">Active Link</span>
+                     </a>
+                  </li>
+                  <li class="mr-3 flex-1">
+                     <a href="#" class="block py-1 md:py-3 pl-1 align-middle text-gray-800 no-underline hover:text-pink-500 border-b-2 border-gray-800 md:border-gray-900 hover:border-pink-500">
+                     <i class="fas fa-link pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-600 md:text-gray-400 block md:inline-block">Link</span>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div> --> 
+   
+        <!-- <header class="header" id="header">
+            <div class="header__toggle">
+                <i class='bx bx-menu' id="header-toggle"></i>
+            </div>
+
+            <div class="header__img">
+                <img src="assets/img/perfil.jpg" alt="">
+            </div>
+        </header>
+
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div>
+                    <a href="#" class="nav__logo">
+                        <i class='bx bx-layer nav__logo-icon'></i>
+                        <span class="nav__logo-name">Bedimcode</span>
+                    </a>
+
+                    <div class="nav__list">
+                        <a href="#" class="nav__link active">
+                        <i class='bx bx-grid-alt nav__icon' ></i>
+                            <span class="nav__name">Dashboard</span>
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-user nav__icon' ></i>
+                            <span class="nav__name">Users</span>
+                        </a>
+                        
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-message-square-detail nav__icon' ></i>
+                            <span class="nav__name">Messages</span>
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-bookmark nav__icon' ></i>
+                            <span class="nav__name">Favorites</span>
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-folder nav__icon' ></i>
+                            <span class="nav__name">Data</span>
+                        </a>
+
+                        <a href="#" class="nav__link">
+                            <i class='bx bx-bar-chart-alt-2 nav__icon' ></i>
+                            <span class="nav__name">Analytics</span>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#" class="nav__link">
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name">Log Out</span>
+                </a>
+            </nav>
+        </div> -->
+
+    
+     <!-- <div class="sidebar close">
+        <ul class="nav-links">
+            <li>
+                <div class="home-content">
+                    <i class='bx bx-menu menu-icon' ></i>
+                  </div>
+            </li>
+          <li>
+            <a href="#" class="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+              <span class="link_name">Search</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li>
+                <form action="#" class="header__search">
+                    <input type="text" placeholder="Artist, track or podcast...">
+                    <button type="button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </li>
+            </ul>
+          </li>
+          <li>
+            <div class="iocn-link">
+              <a href="#">
+                <i class="fa-solid fa-music"></i>
+                <span class="link_name">Releases</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Releases</a></li>
+              <li><a href="#">Popular</a></li>
+              <li><a href="#">Featured </a></li>
+              <li><a href="#">Newest</a></li>
+            </ul>
+          </li>
+          <li>
+            <div class="iocn-link">
+              <a href="#">
+                <i class="fa-solid fa-compact-disc"></i>
+                <span class="link_name">Artists</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Artists</a></li>
+              <li><a href="#">The most popular</a></li>
+              <li><a href="#">bla bla</a></li>
+              <li><a href="#">blablabla</a></li>
+            </ul>
+          </li>
+           <li>
+            <div class="iocn-link">
+              <a href="#">
+                <i class='bx bx-plug' ></i>
+                <span class="link_name">Plugins</span>
+              </a>
+              <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="#">Plugins</a></li>
+              <li><a href="#">UI Face</a></li>
+              <li><a href="#">Pigments</a></li>
+              <li><a href="#">Box Icons</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-compass' ></i>
+              <span class="link_name">Explore</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">Explore</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-history'></i>
+              <span class="link_name">History</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">History</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#profile-main">
+              <i class='bx bx-cog' ></i>
+              <span class="link_name">My Profile</span>
+            </a>
+            <ul class="sub-menu blank">
+              <li><a class="link_name" href="#">My Profile</a></li>
+            </ul>
+          </li>
+          <li>
+      </li>
+     </ul>
+      </div>  -->
+
+       <!-- <section id= 'first'>
+         <h1>First</h1>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non aspernatur quaerat porro autem distinctio ipsam veniam quibusdam quis fugit, cupiditate minus asperiores cumque itaque, reiciendis earum voluptates delectus magnam doloribus.</p>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore voluptas, commodi error dolor debitis asperiores mollitia quae odio reiciendis repellendus dolores a temporibus quidem cupiditate quam architecto, magnam ipsam accusamus.</p>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae fugiat suscipit distinctio eaque veniam eligendi tenetur soluta atque et rerum sit nostrum nam, labore impedit eius fuga dicta? Odit, ad?</p>
+       </section>
+       
+       <section id= 'second'>
+         <h1>Second</h1>
+       </section>
+       
+      <section id= 'third'>
+        <h1>Third</h1>
+       </section>
+       
+      <section id= 'fourth'>
+        <h1>Fourth</h1>
+       </section>
+     </div> --> 
+      <main>
+        <!-- <h1>My Dashboard</h1>
+    <p class="text">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur animi voluptatibus cum maxime distinctio
+      iste quod deleniti eius, autem voluptates cumque suscipit iure quasi eligendi ullam. Sapiente eligendi porro
+      reprehenderit corrupti error facilis quo, fugiat fugit? Maiores aliquam ad, molestiae iste nihil, commodi
+      doloremque tempore excepturi aut id ducimus unde?
+    </p>
+    <p class="copyright">
+      &copy; 2021 - <span>Aqumex</span> All Rights Reserved.
+    </p> -->
+        <section id="profile-main">
+            <div class="container container-md container-sm container-xs myContainer">
+                <audio controls>
+                    <source src="./assets/audios/JONY - Титры.mp3" type="audio/mp3" />
+                  </audio>
+                <div class="col-12">
+                    <div class="main__title main__title--page">
+                        <h1>Profile</h1>
+                    </div>
+                </div>
+                <div class="row row--grid">
+                    <div class="col-12 col-sm-12">
+                        <div class="profile">
+                            <div class="profile__user ">
+                                <div class="profile__avatar">
+                                    <i class="fa-solid fa-user user"></i>
+                                </div>
+                                <div class="profile__meta">
+                                    <h3>Naz Mzadeh</h3>
+                                </div>
+                            </div>
+    
+                            <!-- tabs nav -->
+                            <ul class="nav nav-tabs profile__tabs " id="profile__tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Profile</a>
+                                </li>
+    
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#tab-4" role="tab" aria-controls="tab-4" aria-selected="false">Settings</a>
+                                </li>
+                            </ul>
+                            <!-- end tabs nav -->
+    
+                            <button class="profile__logout " type="button">Sign out
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H5A1,1,0,0,0,4,12ZM17,2H7A3,3,0,0,0,4,5V8A1,1,0,0,0,6,8V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v3a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Z"></path></svg>
+                            </button>
+                        </div>
+    
+                        <!-- content tabs -->
+                         <div class="tab-content">
+                            <div class="tab-pane fade active show" id="tab-1" role="tabpanel">
+                                <div class="row row--grid">
+                                    <div class=" col-12 col-lg-12  col-xl-4 ">
+                                        <div class="stats">
+                                            <span>My balance <a href="#modal-topup" class="open-modal"></a></span>
+                                            <p><b>$90.99</b></p>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6,11a1,1,0,1,0,1,1A1,1,0,0,0,6,11Zm12,0a1,1,0,1,0,1,1A1,1,0,0,0,18,11Zm2-6H4A3,3,0,0,0,1,8v8a3,3,0,0,0,3,3H20a3,3,0,0,0,3-3V8A3,3,0,0,0,20,5Zm1,11a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V8A1,1,0,0,1,4,7H20a1,1,0,0,1,1,1ZM12,9a3,3,0,1,0,3,3A3,3,0,0,0,12,9Zm0,4a1,1,0,1,1,1-1A1,1,0,0,1,12,13Z"></path></svg>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-12 col-lg-12  col-xl-4 ">
+                                        <div class="stats">
+                                            <span>Premium plan</span>
+                                            <p><b>$39.99</b>/month</p>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9,10a1,1,0,0,0-1,1v2a1,1,0,0,0,2,0V11A1,1,0,0,0,9,10Zm12,1a1,1,0,0,0,1-1V6a1,1,0,0,0-1-1H3A1,1,0,0,0,2,6v4a1,1,0,0,0,1,1,1,1,0,0,1,0,2,1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V14a1,1,0,0,0-1-1,1,1,0,0,1,0-2ZM20,9.18a3,3,0,0,0,0,5.64V17H10a1,1,0,0,0-2,0H4V14.82A3,3,0,0,0,4,9.18V7H8a1,1,0,0,0,2,0H20Z"></path></svg>
+                                        </div>
+                                    </div>
+     
+                                    <div class="col-12 col-lg-12 col-xl-4 ">
+                                        <div class="stats">
+                                            <span>Minutes listened</span>
+                                            <p><b>407 021</b></p>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,13.18V11A8,8,0,0,0,4,11v2.18A3,3,0,0,0,2,16v2a3,3,0,0,0,3,3H8a1,1,0,0,0,1-1V14a1,1,0,0,0-1-1H6V11a6,6,0,0,1,12,0v2H16a1,1,0,0,0-1,1v6a1,1,0,0,0,1,1h3a3,3,0,0,0,3-3V16A3,3,0,0,0,20,13.18ZM7,15v4H5a1,1,0,0,1-1-1V16a1,1,0,0,1,1-1Zm13,3a1,1,0,0,1-1,1H17V15h2a1,1,0,0,1,1,1Z"></path></svg>
+                                        </div>
+                                    </div>
+    
+                                </div> 
+  
+                                <!-- <div class="row row--grid">
+                                     <div class="col-12 col-lg-12">
+                                        <div class="dashbox">
+                                            <div class="dashbox__title">
+                                                <!-- <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.65,2.24a1,1,0,0,0-.8-.23l-13,2A1,1,0,0,0,7,5V15.35A3.45,3.45,0,0,0,5.5,15,3.5,3.5,0,1,0,9,18.5V10.86L20,9.17v4.18A3.45,3.45,0,0,0,18.5,13,3.5,3.5,0,1,0,22,16.5V3A1,1,0,0,0,21.65,2.24ZM5.5,20A1.5,1.5,0,1,1,7,18.5,1.5,1.5,0,0,1,5.5,20Zm13-2A1.5,1.5,0,1,1,20,16.5,1.5,1.5,0,0,1,18.5,18ZM20,7.14,9,8.83v-3L20,4.17Z"></path></svg> New items for you</h3> -->
+    
+                                                <!-- <div class="dashbox__wrap">
+                                                    <a class="dashbox__refresh" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,0,0,5.12,4.77V3a1,1,0,0,0-2,0V7.5a1,1,0,0,0,1,1H8.62a1,1,0,0,0,0-2H6.22A8,8,0,1,1,4,12a1,1,0,0,0-2,0A10,10,0,1,0,12,2Zm0,6a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1h2a1,1,0,0,0,0-2H13V9A1,1,0,0,0,12,8Z"></path></svg></a>
+                                                    <a class="dashbox__more" href="#">View All</a>
+                                                </div>
+                                            </div>
+    
+                                            <div class="dashbox__list-wrap">
+                                                <ul class="main__list main__list--dashbox">
+                                                    <li class="single-item">
+                                                        <a data-link="" data-title="Got What I Got" data-artist="Jason Aldean" data-img="img/covers/cover.svg" href="https://dmitryvolkov.me/demo/blast2.0/audio/12071151_epic-cinematic-trailer_by_audiopizza_preview.mp3" class="single-item__cover">
+                                                            <img src="img/covers/cover.svg" alt="">
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.54,9,8.88,3.46a3.42,3.42,0,0,0-5.13,3V17.58A3.42,3.42,0,0,0,7.17,21a3.43,3.43,0,0,0,1.71-.46L18.54,15a3.42,3.42,0,0,0,0-5.92Zm-1,4.19L7.88,18.81a1.44,1.44,0,0,1-1.42,0,1.42,1.42,0,0,1-.71-1.23V6.42a1.42,1.42,0,0,1,.71-1.23A1.51,1.51,0,0,1,7.17,5a1.54,1.54,0,0,1,.71.19l9.66,5.58a1.42,1.42,0,0,1,0,2.46Z"></path></svg>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,2a3,3,0,0,0-3,3V19a3,3,0,0,0,6,0V5A3,3,0,0,0,16,2Zm1,17a1,1,0,0,1-2,0V5a1,1,0,0,1,2,0ZM8,2A3,3,0,0,0,5,5V19a3,3,0,0,0,6,0V5A3,3,0,0,0,8,2ZM9,19a1,1,0,0,1-2,0V5A1,1,0,0,1,9,5Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <div class="single-item__title">
+                                                            <h4><a href="#">Got What I Got</a></h4>
+                                                            <span><a href="artist.html">Jason Aldean</a></span>
+                                                        </div>
+                                                        <a href="#" class="single-item__add">
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <a href="#" class="single-item__export">
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <span class="single-item__time">2:58</span>
+                                                    </li>
+                                                    <li class="single-item">
+                                                        <a data-link="" data-title="Supalonely" data-artist="BENEE Featuring" data-img="img/covers/cover7.jpg" href="https://dmitryvolkov.me/demo/blast2.0/audio/9106709_epic-adventure-cinematic-trailer_by_audiopizza_preview.mp3" class="single-item__cover">
+                                                            <img src="img/covers/cover7.jpg" alt=""> -->
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.54,9,8.88,3.46a3.42,3.42,0,0,0-5.13,3V17.58A3.42,3.42,0,0,0,7.17,21a3.43,3.43,0,0,0,1.71-.46L18.54,15a3.42,3.42,0,0,0,0-5.92Zm-1,4.19L7.88,18.81a1.44,1.44,0,0,1-1.42,0,1.42,1.42,0,0,1-.71-1.23V6.42a1.42,1.42,0,0,1,.71-1.23A1.51,1.51,0,0,1,7.17,5a1.54,1.54,0,0,1,.71.19l9.66,5.58a1.42,1.42,0,0,1,0,2.46Z"></path></svg> -->
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,2a3,3,0,0,0-3,3V19a3,3,0,0,0,6,0V5A3,3,0,0,0,16,2Zm1,17a1,1,0,0,1-2,0V5a1,1,0,0,1,2,0ZM8,2A3,3,0,0,0,5,5V19a3,3,0,0,0,6,0V5A3,3,0,0,0,8,2ZM9,19a1,1,0,0,1-2,0V5A1,1,0,0,1,9,5Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <div class="single-item__title">
+                                                            <h4><a href="#">Supalonely</a></h4>
+                                                            <span><a href="artist.html">BENEE Featuring</a></span>
+                                                        </div> -->
+                                                        <!-- <a href="#" class="single-item__add"> -->
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <a href="#" class="single-item__export"> -->
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <span class="single-item__time">3:14</span>
+                                                    </li>
+                                                    <li class="single-item">
+                                                        <a data-link="" data-title="Girls In The Hood" data-artist="Megan Thee" data-img="img/covers/cover8.jpg" href="https://dmitryvolkov.me/demo/blast2.0/audio/10938456_inspiring-epic-motivational-cinematic-trailer_by_audiopizza_preview.mp3" class="single-item__cover">
+                                                            <img src="img/covers/cover8.jpg" alt=""> -->
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.54,9,8.88,3.46a3.42,3.42,0,0,0-5.13,3V17.58A3.42,3.42,0,0,0,7.17,21a3.43,3.43,0,0,0,1.71-.46L18.54,15a3.42,3.42,0,0,0,0-5.92Zm-1,4.19L7.88,18.81a1.44,1.44,0,0,1-1.42,0,1.42,1.42,0,0,1-.71-1.23V6.42a1.42,1.42,0,0,1,.71-1.23A1.51,1.51,0,0,1,7.17,5a1.54,1.54,0,0,1,.71.19l9.66,5.58a1.42,1.42,0,0,1,0,2.46Z"></path></svg>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,2a3,3,0,0,0-3,3V19a3,3,0,0,0,6,0V5A3,3,0,0,0,16,2Zm1,17a1,1,0,0,1-2,0V5a1,1,0,0,1,2,0ZM8,2A3,3,0,0,0,5,5V19a3,3,0,0,0,6,0V5A3,3,0,0,0,8,2ZM9,19a1,1,0,0,1-2,0V5A1,1,0,0,1,9,5Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <div class="single-item__title">
+                                                            <h4><a href="#">Girls In The Hood</a></h4>
+                                                            <span><a href="artist.html">Megan Thee</a></span>
+                                                        </div>
+                                                        <a href="#" class="single-item__add"> -->
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <a href="#" class="single-item__export"> -->
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z"></path></svg>
+                                                        </a>
+                                                        <span class="single-item__time">3:21</span>
+                                                    </li>
+                                                    <li class="single-item">
+                                                        <a data-link="" data-title="Got It On Me" data-artist="Summer Walker" data-img="img/covers/cover9.jpg" href="https://dmitryvolkov.me/demo/blast2.0/audio/16412111_upbeat-rock_by_audiopizza_preview.mp3" class="single-item__cover">
+                                                            <img src="img/covers/cover9.jpg" alt=""> -->
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.54,9,8.88,3.46a3.42,3.42,0,0,0-5.13,3V17.58A3.42,3.42,0,0,0,7.17,21a3.43,3.43,0,0,0,1.71-.46L18.54,15a3.42,3.42,0,0,0,0-5.92Zm-1,4.19L7.88,18.81a1.44,1.44,0,0,1-1.42,0,1.42,1.42,0,0,1-.71-1.23V6.42a1.42,1.42,0,0,1,.71-1.23A1.51,1.51,0,0,1,7.17,5a1.54,1.54,0,0,1,.71.19l9.66,5.58a1.42,1.42,0,0,1,0,2.46Z"></path></svg>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,2a3,3,0,0,0-3,3V19a3,3,0,0,0,6,0V5A3,3,0,0,0,16,2Zm1,17a1,1,0,0,1-2,0V5a1,1,0,0,1,2,0ZM8,2A3,3,0,0,0,5,5V19a3,3,0,0,0,6,0V5A3,3,0,0,0,8,2ZM9,19a1,1,0,0,1-2,0V5A1,1,0,0,1,9,5Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <div class="single-item__title">
+                                                            <h4><a href="#">Got It On Me</a></h4>
+                                                            <span><a href="artist.html">Summer Walker</a></span>
+                                                        </div>
+                                                        <a href="#" class="single-item__add"> -->
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <a href="#" class="single-item__export"> -->
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <span class="single-item__time">3:12</span>
+                                                    </li>
+                                                    <li class="single-item">
+                                                        <a data-link="" data-title="Righteous" data-artist="Juice WRLD" data-img="img/covers/cover10.jpg" href="https://dmitryvolkov.me/demo/blast2.0/audio/19478377_ambient-pop_by_audiopizza_preview.mp3" class="single-item__cover">
+                                                            <img src="img/covers/cover10.jpg" alt=""> -->
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.54,9,8.88,3.46a3.42,3.42,0,0,0-5.13,3V17.58A3.42,3.42,0,0,0,7.17,21a3.43,3.43,0,0,0,1.71-.46L18.54,15a3.42,3.42,0,0,0,0-5.92Zm-1,4.19L7.88,18.81a1.44,1.44,0,0,1-1.42,0,1.42,1.42,0,0,1-.71-1.23V6.42a1.42,1.42,0,0,1,.71-1.23A1.51,1.51,0,0,1,7.17,5a1.54,1.54,0,0,1,.71.19l9.66,5.58a1.42,1.42,0,0,1,0,2.46Z"></path></svg>
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,2a3,3,0,0,0-3,3V19a3,3,0,0,0,6,0V5A3,3,0,0,0,16,2Zm1,17a1,1,0,0,1-2,0V5a1,1,0,0,1,2,0ZM8,2A3,3,0,0,0,5,5V19a3,3,0,0,0,6,0V5A3,3,0,0,0,8,2ZM9,19a1,1,0,0,1-2,0V5A1,1,0,0,1,9,5Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <div class="single-item__title">
+                                                            <h4><a href="#">Righteous</a></h4>
+                                                            <span><a href="artist.html">Juice WRLD</a></span>
+                                                        </div>
+                                                        <a href="#" class="single-item__add"> --> 
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <a href="#" class="single-item__export"> -->
+                                                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z"></path></svg> -->
+                                                        <!-- </a>
+                                                        <span class="single-item__time">5:04</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div> --> 
+                                    <!-- end dashbox -->
+                                <!-- </div>    -->
+                            </div>
+    
+                             <!-- <div class="tab-pane fade" id="tab-2" role="tabpanel"> 
+                                <div class="row row--grid">
+                                    <div class="col-12">
+                                        <div class="dashbox">
+                                            <div class="dashbox__table-wrap">
+                                                <div class="dashbox__table-scroll" data-scrollbar="true" tabindex="-1" style="overflow: hidden; outline: none;"><div class="scroll-content">
+                                                    <table class="main__table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>№</th>
+                                                                <th><a href="#">Product <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.71,10.21,12,7.91l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-3-3a1,1,0,0,0-1.42,0l-3,3a1,1,0,0,0,1.42,1.42Zm4.58,4.58L12,17.09l-2.29-2.3a1,1,0,0,0-1.42,1.42l3,3a1,1,0,0,0,1.42,0l3-3a1,1,0,0,0-1.42-1.42Z"></path></svg></a></th>
+                                                                <th><a href="#" class="active">Title <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,13.41,12.71,9.17a1,1,0,0,0-1.42,0L7.05,13.41a1,1,0,0,0,0,1.42,1,1,0,0,0,1.41,0L12,11.29l3.54,3.54a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29A1,1,0,0,0,17,13.41Z"></path></svg></a></th>
+                                                                <th><a href="#" class="active">Date <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z"></path></svg></a></th>
+                                                                <th><a href="#">Quantity <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.71,10.21,12,7.91l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-3-3a1,1,0,0,0-1.42,0l-3,3a1,1,0,0,0,1.42,1.42Zm4.58,4.58L12,17.09l-2.29-2.3a1,1,0,0,0-1.42,1.42l3,3a1,1,0,0,0,1.42,0l3-3a1,1,0,0,0-1.42-1.42Z"></path></svg></a></th>
+                                                                <th><a href="#">Total <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.71,10.21,12,7.91l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-3-3a1,1,0,0,0-1.42,0l-3,3a1,1,0,0,0,1.42,1.42Zm4.58,4.58L12,17.09l-2.29-2.3a1,1,0,0,0-1.42,1.42l3,3a1,1,0,0,0,1.42,0l3-3a1,1,0,0,0-1.42-1.42Z"></path></svg></a></th>
+                                                                <th><a href="#">Status <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.71,10.21,12,7.91l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-3-3a1,1,0,0,0-1.42,0l-3,3a1,1,0,0,0,1.42,1.42Zm4.58,4.58L12,17.09l-2.29-2.3a1,1,0,0,0-1.42,1.42l3,3a1,1,0,0,0,1.42,0l3-3a1,1,0,0,0-1.42-1.42Z"></path></svg></a></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="main__table-text main__table-text--number"><a href="#modal-info" class="open-modal">631</a></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-img">
+                                                                        <img src="img/store/item3.jpg" alt="">
+                                                                    </div>
+                                                                </td>	
+                                                                <td>
+                                                                    <div class="main__table-text"><a href="#">Music Blank</a></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text">Aug 21, 2021</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text">17</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text main__table-text--price">$67.83</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text main__table-text--green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.72,8.79l-4.29,4.3L8.78,11.44a1,1,0,1,0-1.41,1.41l2.35,2.36a1,1,0,0,0,.71.29,1,1,0,0,0,.7-.29l5-5a1,1,0,0,0,0-1.42A1,1,0,0,0,14.72,8.79ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"></path></svg>  Delivered</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="main__table-text main__table-text--number"><a href="#modal-info" class="open-modal">632</a></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-img">
+                                                                        <img src="img/store/item3.jpg" alt="">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text"><a href="#">Music Blank</a></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text">Aug 21, 2021</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text">17</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text main__table-text--price">$67.83</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text main__table-text--red"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.71,8.29a1,1,0,0,0-1.42,0L12,10.59,9.71,8.29A1,1,0,0,0,8.29,9.71L10.59,12l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L13.41,12l2.3-2.29A1,1,0,0,0,15.71,8.29Zm3.36-3.36A10,10,0,1,0,4.93,19.07,10,10,0,1,0,19.07,4.93ZM17.66,17.66A8,8,0,1,1,20,12,7.95,7.95,0,0,1,17.66,17.66Z"></path></svg> Canceled</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="main__table-text main__table-text--number"><a href="#modal-info" class="open-modal">708</a></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-img">
+                                                                        <img src="img/store/item4.jpg" alt="">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text"><a href="#">Headphones ZR-991</a></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text">Aug 14, 2021</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text">1</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text main__table-text--price">$199</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text main__table-text--grey"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"></path></svg> On the way</div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="main__table-text main__table-text--number"><a href="#modal-info" class="open-modal">750</a></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-img">
+                                                                        <img src="img/store/item1.jpg" alt="">
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text"><a href="#">Vinyl Player</a></div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text">Aug 5, 2021</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text">1</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text main__table-text--price">$11 899</div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="main__table-text main__table-text--green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.72,8.79l-4.29,4.3L8.78,11.44a1,1,0,1,0-1.41,1.41l2.35,2.36a1,1,0,0,0,.71.29,1,1,0,0,0,.7-.29l5-5a1,1,0,0,0,0-1.42A1,1,0,0,0,14.72,8.79ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"></path></svg> Delivered</div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div><div class="scrollbar-track scrollbar-track-x show" style="display: none;"><div class="scrollbar-thumb scrollbar-thumb-x"></div></div><div class="scrollbar-track scrollbar-track-y show" style="display: none;"><div class="scrollbar-thumb scrollbar-thumb-y"></div></div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> 
+    
+                            <div class="tab-pane fade" id="tab-3" role="tabpanel">
+                                <div class="row row--grid">
+                                    <div class="col-12 col-md-6 col-lg-4 order-md-2 order-lg-1">
+                                        <div class="plan plan--green">
+                                            <h3 class="plan__title">Free</h3>
+                                            <span class="plan__price">$0<span>/month</span></span>
+                                            <ul class="plan__list">
+                                                <li class="green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71,7.21a1,1,0,0,0-1.42,0L9.84,14.67,6.71,11.53A1,1,0,1,0,5.29,13l3.84,3.84a1,1,0,0,0,1.42,0l8.16-8.16A1,1,0,0,0,18.71,7.21Z"></path></svg> Volna Originals</li>
+                                                <li class="green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71,7.21a1,1,0,0,0-1.42,0L9.84,14.67,6.71,11.53A1,1,0,1,0,5.29,13l3.84,3.84a1,1,0,0,0,1.42,0l8.16-8.16A1,1,0,0,0,18.71,7.21Z"></path></svg> Switch plans or cancel anytime</li>
+                                                <li class="red"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg> Stream 65+ top Live</li>
+                                                <li class="red"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg> Music channels</li>
+                                            </ul>
+                                            <button class="plan__btn" type="button">Select plan</button>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-12 col-lg-4 order-md-1 order-lg-2">
+                                        <div class="plan plan--red">
+                                            <h3 class="plan__title">Starter</h3>
+                                            <span class="plan__price">$14.99<span>/month</span></span>
+                                            <ul class="plan__list">
+                                                <li class="green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71,7.21a1,1,0,0,0-1.42,0L9.84,14.67,6.71,11.53A1,1,0,1,0,5.29,13l3.84,3.84a1,1,0,0,0,1.42,0l8.16-8.16A1,1,0,0,0,18.71,7.21Z"></path></svg> Volna Originals</li>
+                                                <li class="green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71,7.21a1,1,0,0,0-1.42,0L9.84,14.67,6.71,11.53A1,1,0,1,0,5.29,13l3.84,3.84a1,1,0,0,0,1.42,0l8.16-8.16A1,1,0,0,0,18.71,7.21Z"></path></svg> Switch plans or cancel anytime</li>
+                                                <li class="green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71,7.21a1,1,0,0,0-1.42,0L9.84,14.67,6.71,11.53A1,1,0,1,0,5.29,13l3.84,3.84a1,1,0,0,0,1.42,0l8.16-8.16A1,1,0,0,0,18.71,7.21Z"></path></svg> Stream 65+ top Live</li>
+                                                <li class="red"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.41,12l4.3-4.29a1,1,0,1,0-1.42-1.42L12,10.59,7.71,6.29A1,1,0,0,0,6.29,7.71L10.59,12l-4.3,4.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z"></path></svg> Music channels</li>
+                                            </ul>
+                                            <button class="plan__btn" type="button">Select plan</button>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-12 col-md-6 col-lg-4 order-md-3 order-lg-3">
+                                        <div class="plan plan--purple">
+                                            <h3 class="plan__title">Premium</h3>
+                                            <span class="plan__price">$39.99<span>/month</span></span>
+                                            <ul class="plan__list">
+                                                <li class="green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71,7.21a1,1,0,0,0-1.42,0L9.84,14.67,6.71,11.53A1,1,0,1,0,5.29,13l3.84,3.84a1,1,0,0,0,1.42,0l8.16-8.16A1,1,0,0,0,18.71,7.21Z"></path></svg> Volna Originals</li>
+                                                <li class="green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71,7.21a1,1,0,0,0-1.42,0L9.84,14.67,6.71,11.53A1,1,0,1,0,5.29,13l3.84,3.84a1,1,0,0,0,1.42,0l8.16-8.16A1,1,0,0,0,18.71,7.21Z"></path></svg> Switch plans or cancel anytime</li>
+                                                <li class="green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71,7.21a1,1,0,0,0-1.42,0L9.84,14.67,6.71,11.53A1,1,0,1,0,5.29,13l3.84,3.84a1,1,0,0,0,1.42,0l8.16-8.16A1,1,0,0,0,18.71,7.21Z"></path></svg> Stream 65+ top Live</li>
+                                                <li class="green"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.71,7.21a1,1,0,0,0-1.42,0L9.84,14.67,6.71,11.53A1,1,0,1,0,5.29,13l3.84,3.84a1,1,0,0,0,1.42,0l8.16-8.16A1,1,0,0,0,18.71,7.21Z"></path></svg> Music channels</li>
+                                            </ul>
+                                            <button class="plan__btn" type="button">Select plan</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+     
+                            <div class="tab-pane fade" id="tab-4" role="tabpanel">
+                                <div class="row row--grid">
+                                    <!-- details form -->
+                                     <div class="col-12 col-lg-6">
+                                        <form action="#" class="sign__form sign__form--profile">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h4 class="sign__title">Profile details</h4>
+                                                </div>
+    
+                                                <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                    <div class="sign__group">
+                                                        <label class="sign__label" for="username">Login</label>
+                                                        <input id="username" type="text" name="username" class="sign__input" placeholder="User123">
+                                                    </div>
+                                                </div>
+    
+                                                <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                    <div class="sign__group">
+                                                        <label class="sign__label" for="email">Email</label>
+                                                        <input id="email" type="text" name="email" class="sign__input" placeholder="email@email.com">
+                                                    </div>
+                                                </div>
+    
+                                                <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                    <div class="sign__group">
+                                                        <label class="sign__label" for="firstname">First name</label>
+                                                        <input id="firstname" type="text" name="firstname" class="sign__input" placeholder="John">
+                                                    </div>
+                                                </div>
+    
+                                                <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                    <div class="sign__group">
+                                                        <label class="sign__label" for="lastname">Last name</label>
+                                                        <input id="lastname" type="text" name="lastname" class="sign__input" placeholder="Doe">
+                                                    </div>
+                                                </div>
+    
+                                                <div class="col-12">
+                                                    <button class="sign__btn" type="button">Save</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div> 
+                                    <!-- end details form -->
+    
+                                    <!-- password form -->
+                                    <div class="col-12 col-lg-6">
+                                        <form action="#" class="sign__form sign__form--profile">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h4 class="sign__title">Change password</h4>
+                                                </div>
+    
+                                                <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                    <div class="sign__group">
+                                                        <label class="sign__label" for="oldpass">Old password</label>
+                                                        <input id="oldpass" type="password" name="oldpass" class="sign__input">
+                                                    </div>
+                                                </div>
+    
+                                                <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                    <div class="sign__group">
+                                                        <label class="sign__label" for="newpass">New password</label>
+                                                        <input id="newpass" type="password" name="newpass" class="sign__input">
+                                                    </div>
+                                                </div>
+    
+                                                <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                    <div class="sign__group">
+                                                        <label class="sign__label" for="confirmpass">Confirm new password</label>
+                                                        <input id="confirmpass" type="password" name="confirmpass" class="sign__input">
+                                                    </div>
+                                                </div>
+    
+                                                <div class="col-12 col-md-6 col-lg-12 col-xl-6">
+                                                    <div class="sign__group">
+                                                        <label class="sign__label" for="select">Select</label>
+                                                        <select name="select" id="select" class="sign__select">
+                                                            <option value="0">Option</option>
+                                                            <option value="1">Option 2</option>
+                                                            <option value="2">Option 3</option>
+                                                            <option value="3">Option 4</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                      
+                                                <div class="col-12">
+                                                    <button class="sign__btn" type="button">Change</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- end password form -->
+                                </div>
+                            </div> 
+                        </div>
+                       
+                        <!-- end content tabs -->
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        </section>
+      </main>
+      <footer>
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-3 col-sm-12">
+                <div class="total">
+                  <img src="https://show.moxcreative.com/hipsound/wp-content/uploads/sites/9/elementor/thumbs/logo_hipsound-pf9lah0bfemgxlwlv20v9ga964pqbmgxh3ocsurbb4.png"
+                  alt="logo">
+                   <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                   </p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-sm-12">
+                <h3>Company</h3>
+                <ul>
+                  <li>
+                    <a href="#">
+                      About Us
+                    </a>
+                    </li>
+                  <li>
+                    <a href="#">
+                      News & Article
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      Partnership
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      For Artists
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-sm-12">
+                <h3>Support</h3>
+                <li>My Account</li>
+                <li>Help Center</li>
+                <li>Term of Sevice</li>
+                <li>Privacy Policy</li>
+              </div>
+            <div class="col-lg-3 col-sm-12 download-app">
+             <h3>Download App</h3>
+             <p>Available for iOS and Android</p>
+             <div class="download">
+              <div class="app-store ">
+                <a href="#">
+                  <img src="/assets/images/App-Store_button.png" alt="app-store">
+                </a>
+               </div>
+               <div class="google-play">
+                <a href="#">
+                  <img src="/assets/images/Google-Play_button.png" alt="google-play">
+                </a>
+               </div>
+             </div>
+            
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="end">
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <span>
+                  <a href="#" class="social-media">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </span>
+                <span>
+                  <a href="#" class="social-media">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </span>
+                <span>
+                  <a href="#" class="social-media">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </span>
+              </div>
+              <div class="col-6">
+                <p>Copyright © 2022 hipsound, All rights reserved. Powered by MoxCreative.</p>
+              </div>
+           
+            </div>
+          </div>
+        </div>
+       </footer>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="./assets/js/main.js"></script>
+      <script src="./assets/js/sidebar.js"></script>
+  </body>

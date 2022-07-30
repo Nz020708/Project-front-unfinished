@@ -1,0 +1,1135 @@
+* {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+button,a{
+  transition: all 0.8s ease;
+
+}
+nav {
+  background-color: #333;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  z-index: 7;
+  width: 100%;
+  padding: 15px;
+  .logo {
+    z-index: 10;
+  }
+  
+  .list-member {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    &:hover {
+      color: black;
+    }
+    a{
+      text-decoration: none;
+      font-size: 17px;
+      color: #f2f2f2;
+     &:hover {
+      color: #75f991;
+    }
+
+    }
+  }
+  .active:hover {
+    color: #75f991;
+  }
+  
+ 
+  li{
+    .btn-signin {
+      padding: 15px 22px;
+      font-size: 18px;
+      color: rgb(0, 0, 0);
+      border: 1px solid #75f991;
+      border-radius: 10px;
+      background-color: #75f991;
+      text-decoration: none;
+      margin-top: 10px;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  
+  }
+    
+
+  .icon {
+    display: none;
+  }
+}
+
+#hero {
+  position: relative;
+  height: 900px;
+  width: 100%;
+  z-index: 5;
+  overflow: hidden;
+  animation: rotateHue infinite $t * $slides * 2 linear;
+  animation-delay: $t/4;
+  .btn-go-premium {
+    padding: 27px 45px;
+    font-size: 25px;
+    color: rgb(0, 0, 0);
+    border: 1px solid #75f991;
+    border-radius: 10px;
+    background-color: #75f991;
+    text-decoration: none;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  h2 {
+    font-size: 85px;
+    color: white;
+    font-weight: bolder;
+    span {
+      position: relative;
+      z-index: 5;
+    }
+    .listen-now {
+      background-image: linear-gradient(transparent 60%, #75f991 40%);
+      background-size: 60px 110px;
+    }
+  }
+  p {
+    font-size: 25px;
+    color: white;
+    margin: 45px 0px;
+  }
+  .untitled__shutters {
+    position: absolute;
+    left: calc(50% -75vmax);
+    top: calc(50% - -75vmax);
+    pointer-events: none;
+    z-index: 2;
+    @keyframes rotateFrame {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(180deg);
+      }
+    }
+    animation: rotateFrame $t * 4 $er infinite;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+      background-color: $color;
+      pointer-events: auto;
+    }
+    &:before {
+      bottom: 50%;
+      @keyframes openTop {
+        0% {
+          transform: translate3d(-50%, 0, 0);
+          animation-timing-function: $e1;
+        }
+        40% {
+          transform: translate3d(-50%, -65vmax, 0);
+          animation-timing-function: $e2;
+        }
+        70% {
+          transform: translate3d(-50%, -65vmax, 0);
+          animation-timing-function: $e2;
+        }
+        100% {
+          transform: translate3d(-50%, 0, 0);
+          animation-timing-function: $e2;
+        }
+      }
+      animation: openTop $t * 2 infinite;
+    }
+    &:after {
+      top: 50%;
+      @keyframes openBottom {
+        0% {
+          transform: translate3d(-50%, 0, 0);
+          animation-timing-function: $e1;
+        }
+        40% {
+          transform: translate3d(-50%, 65vmax, 0);
+          animation-timing-function: $e2;
+        }
+        70% {
+          transform: translate3d(-50%, 65vmax, 0);
+          animation-timing-function: $e2;
+        }
+        100% {
+          transform: translate3d(-50%, 0, 0);
+          animation-timing-function: $e2;
+        }
+      }
+      animation: openBottom $t * 2 infinite;
+    }
+  }
+
+  .untitled__slides {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: $color;
+    overflow: hidden;
+  }
+  .untitled__slide {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    @keyframes showHideSlide {
+      0% {
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 2;
+      }
+      #{100% / $slides} {
+        opacity: 0;
+        pointer-events: none;
+        z-index: -1;
+      }
+      100% {
+        opacity: 0;
+        pointer-events: none;
+        z-index: -1;
+      }
+    }
+    animation: showHideSlide infinite $t * $slides * 2 steps(1);
+    @for $i from 1 through $slides {
+      &:nth-child(#{$i}) {
+        animation-delay: $t * ($i - 1) * 2;
+        .untitled__slideBg {
+          background-image: nth($images, $i);
+        }
+      }
+    }
+  }
+  .untitled__slideBg {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    background-color: $color;
+    background-blend-mode: hard-light;
+    opacity: 1;
+    z-index: -1;
+    @keyframes bgInOut {
+      0% {
+        transform: rotate(-45deg) scale(1.1);
+        animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+      }
+      33% {
+        transform: rotate(0deg);
+      }
+      50% {
+        transform: rotate(0deg);
+      }
+      66% {
+        transform: rotate(0deg);
+        animation-timing-function: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+      }
+      100% {
+        transform: rotate(45deg) scale(0.9);
+      }
+    }
+    animation: bgInOut $t * 4 -$t * 2 infinite;
+  
+  .untitled__slideContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate3d(-50%, -50%, 0);
+    color: white;
+    font-family: $font;
+    line-height: 0.8;
+    letter-spacing: -0.025em;
+    z-index: 2;
+    opacity: 1;
+    text-shadow: 0 0 0.5em rgba($color, 0.25);
+    mix-blend-mode: lighten;
+    span {
+      display: block;
+      font-size: 15vmin;
+    }
+  }
+ }
+}
+// .button {
+//   text-decoration: none;
+//   font-weight: 800;
+//   text-transform: uppercase;
+//   font-size: 2vmin;
+//   display: inline-block;
+//   position: relative;
+//   border: 3px solid white;
+//   box-shadow: -0.5vmin 0.5vmin 0 rgba(white, 0.5);
+//   margin-top: 5vmin;
+//   mix-blend-mode: lighten;
+//   color: white;
+//   padding: 2vmin 2vmin 1.8vmin 2vmin;
+//   letter-spacing: 0.1em;
+//   text-shadow: none;
+//   line-height: 1;
+//   transform: translate3d(0.5vmin, -0.5vmin, 0);
+//   transition: all 100ms linear;
+//   &:hover {
+//     transform: translate3d(1vmin, -1vmin, 0);
+//     box-shadow: -1vmin 1vmin 0 rgba(white, 0.5);
+//     background: white;
+//     color: black;
+//   }
+//   &:active {
+//     transform: translate3d(0px, 0px, 0);
+//     box-shadow: -0px 0px 0 rgba(white, 0.5);
+//   }
+// }
+
+@media screen and (max-width: 700px) {
+  nav .list-member,
+  .dropdown {
+    display: none;
+  }
+  nav a.icon {
+    float: right;
+    display: block;
+  }
+  .topnav.responsive {
+    position: absolute;
+    background: #333333;
+    border-radius: 10px;
+    margin-top: 5px;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {
+    float: none;
+  }
+  .topnav.responsive .dropdown-content {
+    position: relative;
+  }
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .home {
+    margin-top: 60px;
+  }
+}
+@media screen and (max-width: 575px) {
+  #hero {
+    .untitled__slides {
+      .untitled__slide {
+        .untitled__slideBg{
+          .untitled__slideContent {
+            h2,span {
+              margin: 0 auto;
+              font-size: 40px;
+  
+            }
+            p {
+              margin-right: 50px;
+              font-size: 15px;
+  
+            }
+            .premium-btn {
+              .btn-go-premium{
+                margin-right: 50px;
+                padding: 17px 35px;
+                font-size: 15px;
+              }
+             
+            } 
+              
+            
+          }
+        }
+       
+      }
+    }
+  }
+}
+
+/* Google Fonts Import Link */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.home-section {
+  position: relative;
+  background: #e4e9f7;
+  height: 100vh;
+  left: 260px;
+  width: calc(100% - 260px);
+  transition: all 0.5s ease;
+}
+
+
+
+
+// #hero {
+//       h2 {
+//         font-size: 85px;
+//         color: white;
+//         font-weight: bolder;
+//         span {
+//           position: relative;
+//           z-index: 5;
+//         }
+//         .listen-now {
+//           background-image: linear-gradient(transparent 60%, #75f991 40%);
+//           background-size: 60px 100px;
+//         }
+//       }
+//       p {
+//         font-size: 25px;
+//         color: white;
+//         margin: 45px 0px;
+//       }
+
+//       .btn-go-premium {
+//         padding: 27px 45px;
+//         font-size: 25px;
+//         color: rgb(0, 0, 0);
+//         border: 1px solid #75f991;
+//         border-radius: 10px;
+//         background-color: #75f991;
+//         text-decoration: none;
+//         &:hover {
+//           background-color: transparent;
+//         }
+//       }
+
+//       .premium-btn
+//        {
+//         text-align: center;
+//         margin: 0 auto;
+//       }
+
+// }
+
+nav.fixed {
+  position: fixed;
+  box-shadow: 5px 5px 19px 0px rgba(0, 0, 0, 0.5);
+}
+
+#everywhere {
+  background-image: url(/assets/images/man-listening-to-music.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 700px;
+  left: 0;
+  width: 100%;
+  filter: brightness(100%) contrast(100%) saturate(0%) blur(0px)
+    hue-rotate(0deg);
+  &:hover {
+    filter: none;
+  }
+  .background-transparent {
+    background-color: #00000080;
+    background-size: cover;
+    min-height: 1000px;
+    width: 100%;
+    .myContainer {
+      padding-top: 180px;
+      h2 {
+        font-size: 85px;
+        color: white;
+        font-weight: bolder;
+      }
+      p {
+        font-size: 25px;
+        color: white;
+        margin: 45px 0px;
+      }
+
+      .btn-discover {
+        padding: 27px 45px;
+        font-size: 25px;
+        color: rgb(0, 0, 0);
+        border: 1px solid #75f991;
+        border-radius: 10px;
+        background-color: #75f991;
+        text-decoration: none;
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 770px) {
+  #everywhere {
+    .background-transparent {
+      .myContainer {
+        .main-text {
+          h2 {
+            font-size: 40px;
+          }
+        }
+        .text {
+          p {
+            font-size: 15px;
+          }
+        }
+        .discover-btn {
+          margin-top: 30px;
+          .btn-discover {
+            padding: 17px 35px;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+footer {
+  background-color: #131517;
+  padding: 80px 0px;
+  color: #fff;
+  z-index: 10;
+  .total {
+    p {
+      padding-top: 15px;
+    }
+  }
+  li {
+    list-style-type: none;
+    a {
+      text-decoration: none;
+      color: #fff;
+      &:hover {
+        color: #75f991;
+        text-decoration: none;
+      }
+    }
+  }
+  .download {
+    display: flex;
+    .google-play {
+      margin-left: 10px;
+    }
+  }
+}
+@media screen and (max-width: 1510px) {
+  footer {
+    .container {
+      .row {
+        .download-app {
+          img {
+            width: 160px;
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (min-width: 990px) and (max-width: 1285px) {
+  footer {
+    .container {
+      .row {
+        .download-app {
+          img {
+            width: 110px;
+            height: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 300px) {
+  footer {
+    .container {
+      .row {
+        .download-app {
+          .download {
+            display: block;
+            flex-wrap: wrap;
+            .google-play {
+              margin: 10px 5px 0px 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+hr {
+  color: #1a1c1f;
+}
+.end {
+  a {
+    text-decoration: none;
+    background-color: #1a1c1f;
+    padding: 6px;
+    margin-right: 5px;
+    border-radius: 5px;
+    i {
+      color: white;
+      &:hover {
+        color: #75f991;
+      }
+    }
+  }
+}
+#signin-part {
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  button {
+    background-color: #75f991;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  .createbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+    &:hover{
+      background-color: transparent;
+      color: white;
+    }
+  }
+  .login:hover{
+    background-color: transparent;
+  }
+ .facebook{
+  background-color: #3b5999;
+
+  i{
+    color: white;
+  }
+  &:hover{
+    background-color: white;
+    i{
+      color: #3b5999;
+    }
+  }
+ }
+ .twitter{
+  background-color: #1da1f2;
+  i{
+    color: white;
+  }
+  &:hover{
+    background-color: white;
+    i{
+      color: #1da1f2;
+    }
+  }
+ }
+ .google{
+  background-color: #df4a32;
+  i{
+    color: white;
+  }
+  &:hover{
+    background-color: white;
+    i{
+      color: #df4a32;
+    }
+  }
+ }
+ .facebook,.twitter,.google{
+  border-radius: 10px;
+ }
+  /* Center the image and position the close button */
+  .buttoncontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
+    padding-top: 60px;
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #121010;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.25);
+    color: white;
+  }
+  .input-text {
+    color: #000;
+  }
+  /* The Close Button (x) */
+  .closeButton {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .closeButton:hover,
+  .closeButton:focus {
+    color: red;
+    cursor: pointer;
+  }
+  .sign__group{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+     input{
+      position: absolute;
+      left: -9999px;
+     }
+     .sign__group--checkbox input:not(:checked) + label:before, .sign__group--checkbox input:checked + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      background-color: #222227;
+      border: 1px solid transparent;
+      border-radius: 6px;
+     }
+     .sign__group--checkbox input:not(:checked) + label:after, .sign__group--checkbox input:checked + label:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      text-align: center;
+      transition: 0.5s ease;
+      background: url(../img/checkmark.svg) no-repeat center/20px auto;
+      border-radius: 6px;
+  }
+  }
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s;
+  }
+
+  @-webkit-keyframes animatezoom {
+    from {
+      -webkit-transform: scale(0);
+    }
+    to {
+      -webkit-transform: scale(1);
+    }
+  }
+
+  @keyframes animatezoom {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+  }
+}
+#signiup-part {
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  button {
+    background-color: #75f991;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  
+  .signup:hover{
+    background-color: transparent;
+  }
+ .facebook{
+  background-color: #3b5999;
+
+  i{
+    color: white;
+  }
+  &:hover{
+    background-color: white;
+    i{
+      color: #3b5999;
+    }
+  }
+ }
+ .twitter{
+  background-color: #1da1f2;
+  i{
+    color: white;
+  }
+  &:hover{
+    background-color: white;
+    i{
+      color: #1da1f2;
+    }
+  }
+ }
+ .google{
+  background-color: #df4a32;
+  i{
+    color: white;
+  }
+  &:hover{
+    background-color: white;
+    i{
+      color: #df4a32;
+    }
+  }
+ }
+ .facebook,.twitter,.google{
+  border-radius: 10px;
+ }
+  /* Center the image and position the close button */
+  .buttoncontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+
+  /* The Modal (background) */
+  .modal-signup{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+
+    padding-top: 60px;
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #121010;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0, 0.25);
+    color: white;
+  }
+  .input-text {
+    color: #000;
+  }
+  /* The Close Button (x) */
+  .closeButton {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: rgb(255, 255, 255);
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .closeButton:hover,
+  .closeButton:focus {
+    color: red;
+    cursor: pointer;
+  }
+  .sign__group{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+     input{
+      position: absolute;
+      left: -9999px;
+     }
+     .sign__group--checkbox input:not(:checked) + label:before, .sign__group--checkbox input:checked + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      background-color: #222227;
+      border: 1px solid transparent;
+      border-radius: 6px;
+     }
+     .sign__group--checkbox input:not(:checked) + label:after, .sign__group--checkbox input:checked + label:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 22px;
+      height: 22px;
+      text-align: center;
+      transition: 0.5s ease;
+      background: url(../img/checkmark.svg) no-repeat center/20px auto;
+      border-radius: 6px;
+  }
+  }
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s;
+  }
+
+  @-webkit-keyframes animatezoom {
+    from {
+      -webkit-transform: scale(0);
+    }
+    to {
+      -webkit-transform: scale(1);
+    }
+  }
+
+  @keyframes animatezoom {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+  }
+}
+.cancelbtn {
+  width: 100%;
+}
+.sign-up{
+  margin-top: 20px;
+}
+.user{
+  font-size: 35px;
+  color: #75f991;
+}
+
+
+.menu {   
+  list-style-type: none;
+  margin-bottom: 0px;
+}
+.logo {
+  font-size: 20px;
+  padding: 7.5px 10px 7.5px 0;
+}
+.item {
+  padding: 10px;
+}
+.item.button {
+  padding: 9px 5px;
+}
+.item:not(.button) a:hover,
+.item a:hover::after {
+  color: #ccc;
+}
+
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  .list-member{
+    .active, a:hover{
+      color: #75f991;
+    }
+  }
+}
+.menu li a {
+  display: block;
+  padding: 15px 5px;
+  color: white;
+}
+
+.toggle {
+  order: 1;
+  font-size: 20px;
+}
+.item.button {
+  order: 2;
+}
+.item {
+  order: 3;
+  width: 100%;
+  text-align: center;
+  display: none;
+}
+.active .item {
+  display: block;
+}
+.button.secondary { /* divider between buttons and menu links */
+  border-bottom: 1px #444 solid;
+}
+@media all and (min-width: 960px) {
+  .menu {
+      align-items: flex-start;     
+      flex-wrap: nowrap;
+      background: none;
+  }
+  .logo {
+      order: 0;
+  }
+  .item {
+      order: 1;
+      position: relative;
+      display: block; 
+      width: auto;
+  }
+  .button {
+      order: 2;
+  }
+
+  .toggle {
+      display: none;
+  }
+ 
+}
+/* Tablet menu */
+@media all and (min-width: 700px) {
+  .menu {
+      justify-content: center;
+  }
+  .logo {
+      flex: 1;
+  }
+  .item.button {
+      width: auto;
+      order: 1;
+      display: block;
+  }
+  .toggle {
+      flex: 1;
+      text-align: right;
+      order: 2;
+  }
+  /* Button up from tablet screen */
+  .menu li.button a {
+      padding: 10px 15px;
+      margin: 5px 0;
+  }
+  .button a {
+      background: #0080ff;
+      border: 1px royalblue solid;
+  }
+  .button.secondary {
+      border: 0;
+  }
+  .button.secondary a {
+      background: transparent;
+      border: 1px #0080ff solid;  
+  }
+  .button a:hover {
+      text-decoration: none;
+  }
+  .button:not(.secondary) a:hover {
+      background: royalblue;
+      border-color: darkblue;
+  }
+}

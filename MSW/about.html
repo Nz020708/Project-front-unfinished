@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <title>MSW</title>
+</head>
+
+<body>
+    <header>
+      <div id="signin-part" class="modal">
+        <form class="modal-content animate" action="/action_page.php" method="post">
+          <div class="buttoncontainer">
+            <span class="closeButton" title="Close Modal">&times;</span>
+          </div>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input class="input-text" type="text" placeholder="Enter Username" name="uname" required />
+  
+            <label for="psw"><b>Password</b></label>
+            <input class="input-text" type="password" placeholder="Enter Password" name="psw" required />
+  
+            <button type="submit" class="login">Login</button>
+            <div class="sign__group sign__group--checkbox">
+              <label>
+                <input class="input-text" type="checkbox" checked="checked" name="remember"> Remember me
+              </label>
+            </div>
+          </div>
+          <div class="container">
+            <span class="sign__delimiter">or</span>
+            <div class="row">
+              <div class="col-4">
+                <button class="facebook">
+                  <i class="fa-brands fa-facebook"></i>
+                </button>
+              </div>
+              <div class="col-4">
+                <button class="twitter">
+                  <i class="fa-brands fa-twitter"></i>
+                </button>
+              </div>
+              <div class="col-4">
+                <button class="google">
+                  <i class="fa-brands fa-google"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <p>Don't have an account yet?</p>
+            <button type="button" class="createbtn">Create an account</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        </form>
+      </div>
+      <div id="signup-part" class="modal-signup" style="display: none;">
+        <form class="modal-content animate" action="/action_page.php" method="post">
+          <div class="buttoncontainer">
+            <span class="closeButton" title="Close Modal">&times;</span>
+          </div>
+          <div class="container">
+            <label for="uname"><b>Email</b></label>
+            <input class="input-text" type="text" placeholder="Enter Email" name="email" required />
+            <label for="uname"><b>Username</b></label>
+            <input class="input-text" type="text" placeholder="Enter Username" name="uname" required />
+  
+            <label for="psw"><b>Password</b></label>
+            <input class="input-text" type="password" placeholder="Enter Password" name="psw" required />
+            <label for="psw"><b>Password</b></label>
+            <input class="input-text" type="password" placeholder="Repeat Password" name="checkpassword" required />
+  
+            <button type="submit" class="signup">Sign Up</button>
+            <div class="sign__group sign__group--checkbox">
+              <input id="remember" name="remember" type="checkbox" checked="checked" />
+              <label for="remember">Remember Me</label>
+            </div>
+          </div>
+          <div class="container">
+            <span class="sign__delimiter">or</span>
+            <div class="row">
+              <div class="col-4">
+                <button class="facebook">
+                  <i class="fa-brands fa-facebook"></i>
+                </button>
+              </div>
+              <div class="col-4">
+                <button class="twitter">
+                  <i class="fa-brands fa-twitter"></i>
+                </button>
+              </div>
+              <div class="col-4">
+                <button class="google">
+                  <i class="fa-brands fa-google"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <nav> 
+        <div class="container">
+          <ul class="menu">
+            <li class="logo"><a href="#"><img
+                  src="https://show.moxcreative.com/hipsound/wp-content/uploads/sites/9/elementor/thumbs/logo_hipsound-pf9lah0bfemgxlwlv20v9ga964pqbmgxh3ocsurbb4.png"
+                  alt="logo" /></a></li>
+                  <ul class="list item">
+                    <li class="item list-member "><a href="index.html">Home</a></li>
+                    <li class="item list-member"><a href="premium.html">Premium</a></li>
+                    <li class="item list-member "><a href="about.html " class="active">About</a></li>
+                    <li class="item list-member"><a href="#">Support</a>
+                    </li>
+                  </ul>
+            <li class="item "><button href="#" class="btn-signin">Sign In</button></li>
+            <!-- <li class="item button secondary"><a href="#">Sign Up</a></li> -->
+            <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+          </ul>
+        </div>
+        
+      </nav>
+    </header>
+    <main>
+      <section id="about-us">
+        <div class="container">
+          <div class="inside">
+            <h2>About Us</h2>
+            <p>
+              With HipSound, it’s easy to find the right music or podcast for every moment – on your phone, your computer, your tablet and more.
+            </p>
+            <p>
+              There are millions of tracks and episodes on HipSound. So whether you’re behind the wheel, working out, partying or relaxing, the right music or podcast is always at your fingertips. Choose what you want to listen to, or let HipSound surprise you.
+            </p>
+            <p>
+              You can also browse through the collections of friends, artists, and celebrities, or create a radio station and just sit back.
+            </p>
+            <p>
+              Soundtrack your life with HipSound. Subscribe or listen for free.
+            </p>
+          </div>
+          <div class="what-to-do">
+            <div class="col-sm-12 col-lg-4 part">
+              <div class="step">
+                <span class="step__number">01</span>
+                <h3 class="step__title">Create an account</h3>
+                <p class="step__text">It to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-4 part">
+              <div class="step">
+                <span class="step__number">02</span>
+                <h3 class="step__title">Choose your plan</h3>
+                <p class="step__text">All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-4 part">
+              <div class="step">
+                <span class="step__number">03</span>
+                <h3 class="step__title">Enjoy HipSound music</h3>
+                <p class="step__text">It to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting</p>
+              </div>
+            </div>
+          
+          </div>
+          <div class="signup">
+            <div class="col-lg-12 part">
+              <button class="sign-up">Sign up</button>
+            </div>
+          </div>
+        </div>
+       
+    
+      </section>
+    </main>
+    <footer>
+        <div class="container">
+          <div class="row">
+              <div class="col-lg-3 col-sm-12">
+                <div class="total">
+                  <img src="https://show.moxcreative.com/hipsound/wp-content/uploads/sites/9/elementor/thumbs/logo_hipsound-pf9lah0bfemgxlwlv20v9ga964pqbmgxh3ocsurbb4.png"
+                  alt="logo">
+                   <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                   </p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-sm-12">
+                <h3>Company</h3>
+                <ul>
+                  <li>
+                    <a href="#">
+                      About Us
+                    </a>
+                    </li>
+                  <li>
+                    <a href="#">
+                      News & Article
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      Partnership
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      For Artists
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-lg-3 col-sm-12">
+                <h3>Support</h3>
+                <li>My Account</li>
+                <li>Help Center</li>
+                <li>Term of Sevice</li>
+                <li>Privacy Policy</li>
+              </div>
+            <div class="col-lg-3 col-sm-12 download-app">
+             <h3>Download App</h3>
+             <p>Available for iOS and Android</p>
+             <div class="download">
+              <div class="app-store ">
+                <a href="#">
+                  <img src="/assets/images/App-Store_button.png" alt="app-store">
+                </a>
+               </div>
+               <div class="google-play">
+                <a href="#">
+                  <img src="/assets/images/Google-Play_button.png" alt="google-play">
+                </a>
+               </div>
+             </div>
+            
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="end">
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <span>
+                  <a href="#" class="social-media">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </span>
+                <span>
+                  <a href="#" class="social-media">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </span>
+                <span>
+                  <a href="#" class="social-media">
+                    <i class="fa-brands fa-instagram"></i>
+                  </a>
+                </span>
+              </div>
+              <div class="col-6">
+                <p>Copyright © 2022 hipsound, All rights reserved. Powered by MoxCreative.</p>
+              </div>
+           
+            </div>
+          </div>
+        </div>
+       </footer>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+      <script src="./assets/js/main.js"></script>
+  </body>
